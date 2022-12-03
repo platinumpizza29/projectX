@@ -2,8 +2,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:projectx/Components/DrawerComp.dart';
 
@@ -17,12 +15,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var string1 = "";
   var selectedUser = "";
-  var message = "";
+  var message = [];
 
   TextEditingController messageController = TextEditingController();
 
   handleClick() {
-    return Text(message);
+    return ListView(
+      children: message
+          .map((e) => ListTile(
+                iconColor: Colors.deepPurpleAccent,
+                leading: Icon(Icons.person),
+                title: Text(e),
+              ))
+          .toList(),
+    );
   }
 
   @override
@@ -56,14 +62,10 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  CupertinoSearchTextField(),
-                  SizedBox(
-                    height: 20,
-                  ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Friends",
+                      "Inbox",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
@@ -71,8 +73,12 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 20,
                   ),
+                  CupertinoSearchTextField(),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Container(
-                    height: 300,
+                    height: MediaQuery.of(context).size.height - 207,
                     width: MediaQuery.of(context).size.width,
                     child: Expanded(
                       child: ListView.builder(
@@ -92,22 +98,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(
                     height: 20,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Channels",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height - 562,
-                    color: Colors.blue,
-                    width: MediaQuery.of(context).size.width,
                   ),
                 ],
               ),
@@ -131,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             setState(() {
                               var message1 = messageController.text;
-                              message = message1;
+                              message.add(message1);
                             });
                           },
                           icon: Icon(

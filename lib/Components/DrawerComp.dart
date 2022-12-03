@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:projectx/Pages/SettingsPage.dart';
 
 class DrawerComp extends StatefulWidget {
   const DrawerComp({super.key});
@@ -15,12 +16,17 @@ class _DrawerCompState extends State<DrawerComp> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
       child: Column(
         children: [
           Container(
             height: 250,
             width: MediaQuery.of(context).size.width,
-            color: Colors.red,
+            child: Image(
+              image: AssetImage("images/m_avatar.png"),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
           ListTile(
             title: Text("Profile"),
@@ -32,6 +38,10 @@ class _DrawerCompState extends State<DrawerComp> {
           ),
           ListTile(
             title: Text("Settings"),
+            onTap: () {
+              Navigator.push(context,
+                  CupertinoPageRoute(builder: (context) => SettingsPage()));
+            },
             leading: Icon(
               Icons.settings,
               color: Colors.deepPurpleAccent,

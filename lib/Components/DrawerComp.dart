@@ -63,7 +63,10 @@ class _DrawerCompState extends State<DrawerComp> {
               child: Align(
                   alignment: Alignment.bottomCenter,
                   child: CupertinoButton.filled(
-                      child: Text("Logout"), onPressed: () {})),
+                      child: Text("Logout"),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      })),
             ),
           )
         ],

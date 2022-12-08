@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:projectx/Services/themes.dart';
 
 class AccessibilityComp extends StatefulWidget {
   const AccessibilityComp({super.key});
@@ -48,15 +49,19 @@ class _AccessibilityCompState extends State<AccessibilityComp> {
                                     color: Colors.amber,
                                     size: 50,
                                   ),
-                            trailing: CupertinoSwitch(
-                                value: switchVal,
-                                onChanged: (val) {
-                                  setState(() {
-                                    setState(() {
-                                      switchVal = val;
-                                    });
-                                  });
-                                }),
+                            // trailing: CupertinoSwitch(
+                            //     value: switchVal,
+                            //     onChanged: (val) {
+                            //       setState(() {
+                            //         switchVal = val;
+                            //       });
+
+                            //     }),
+                            trailing: IconButton(
+                                onPressed: () {
+                                  currentTheme.toggleTheme();
+                                },
+                                icon: Icon(Icons.dark_mode)),
                           ),
                           Text("This set the default theme to dark mode.")
                         ],

@@ -28,13 +28,19 @@ class _SettingsPageState extends State<SettingsPage> {
               indicatorColor: Colors.black,
               tabs: [
                 Tab(
-                  icon: Icon(Icons.accessibility, color: Colors.black),
+                  icon: Icon(
+                    Icons.accessibility,
+                  ),
                 ),
                 Tab(
-                  icon: Icon(Icons.person, color: Colors.black),
+                  icon: Icon(
+                    Icons.person,
+                  ),
                 ),
                 Tab(
-                  icon: Icon(Icons.notifications, color: Colors.black),
+                  icon: Icon(
+                    Icons.notifications,
+                  ),
                 )
               ],
             ),

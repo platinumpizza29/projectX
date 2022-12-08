@@ -110,7 +110,11 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () {
                                 var email = _emailController.text;
                                 var password = _passwordController.text;
-                                handleUserLogin(email, password);
+                                Navigator.push(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) => HomePage()));
+                                //handleUserLogin(email, password);
                               },
                               child: Text("Sign In"),
                               style: ElevatedButton.styleFrom(

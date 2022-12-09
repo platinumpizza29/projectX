@@ -5,6 +5,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:lottie/lottie.dart';
 import 'package:projectx/Components/DrawerComp.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,10 +37,10 @@ class _HomePageState extends State<HomePage> {
 
   handleClick() {
     if (selectedUser == null) {
-      return Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Image(image: AssetImage("images/chat.png")),
+      return Center(
+        child: Lottie.asset('images/chatting.json',
+            height: MediaQuery.of(context).size.height / 2,
+            width: MediaQuery.of(context).size.width / 2),
       );
     } else {
       return Column(
